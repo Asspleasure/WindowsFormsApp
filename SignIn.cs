@@ -25,7 +25,7 @@ namespace WindowsFormsApp
                 bool CHECK = true;
                 while(CHECK)
                 {
-                    if (textBox1.Text == "" && textBox2.Text == "")
+                    if (textBoxLogin.Text == "" && textBoxPassword.Text == "")
                     {
                         emptyLogin.Invoke(new Action(() => emptyLogin.Visible = true));
                         emptyPass.Invoke(new Action(() => emptyPass.Visible = true));
@@ -37,14 +37,14 @@ namespace WindowsFormsApp
                         emptyPass.Invoke(new Action(() => emptyPass.Visible = false));
                     }
 
-                    if (textBox1.Text == "")
+                    if (textBoxLogin.Text == "")
                     {
                         emptyLogin.Invoke(new Action(() => emptyLogin.Visible = true));
                         CHECK = false;
                     }
                     else emptyLogin.Invoke(new Action(() => emptyLogin.Visible = false));
 
-                    if (textBox2.Text == "")
+                    if (textBoxPassword.Text == "")
                     {
                         emptyPass.Invoke(new Action(() => emptyPass.Visible = true));
                         CHECK = false;
@@ -58,14 +58,14 @@ namespace WindowsFormsApp
         {
             CheckFields();
 
-            if (textBox1.Text == "" || textBox2.Text == "") return;
+            if (textBoxLogin.Text == "" || textBoxPassword.Text == "") return;
 
             try
             {
                 var userSignIn = SqlServer.SelectAllUsers();
                 foreach (var i in userSignIn)
                 {
-                    if (textBox1.Text.Equals(i.Key) && textBox2.Text.Equals(i.Value))
+                    if (textBoxLogin.Text.Equals(i.Key) && textBoxPassword.Text.Equals(i.Value))
                     {
                         this.Hide();
                         Menu menu = new Menu();
@@ -74,9 +74,9 @@ namespace WindowsFormsApp
                     }
                 }
 
-                textBox1.Text = "";
-                textBox2.Text = "";
-                textBox1.Focus();
+                textBoxLogin.Text = "";
+                textBoxPassword.Text = "";
+                textBoxLogin.Focus();
                 MessageBox.Show("Uncorrect password or login");
             }
             catch(Exception)

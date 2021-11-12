@@ -29,10 +29,10 @@ namespace WindowsFormsApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.textBoxLogin = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.buttonSignIn = new System.Windows.Forms.Button();
+            this.buttonRegister = new System.Windows.Forms.Button();
             this.exitFromProgramm = new System.Windows.Forms.Button();
             this.emptyLogin = new System.Windows.Forms.Label();
             this.emptyPass = new System.Windows.Forms.Label();
@@ -40,37 +40,37 @@ namespace WindowsFormsApp
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(300, 122);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(202, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBoxLogin.Location = new System.Drawing.Point(300, 122);
+            this.textBoxLogin.Name = "textBox1";
+            this.textBoxLogin.Size = new System.Drawing.Size(202, 20);
+            this.textBoxLogin.TabIndex = 0;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(300, 184);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(202, 20);
-            this.textBox2.TabIndex = 1;
+            this.textBoxPassword.Location = new System.Drawing.Point(300, 184);
+            this.textBoxPassword.Name = "textBox2";
+            this.textBoxPassword.Size = new System.Drawing.Size(202, 20);
+            this.textBoxPassword.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(300, 259);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Sign in";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonSignIn.Location = new System.Drawing.Point(300, 259);
+            this.buttonSignIn.Name = "button1";
+            this.buttonSignIn.Size = new System.Drawing.Size(75, 23);
+            this.buttonSignIn.TabIndex = 2;
+            this.buttonSignIn.Text = "Sign in";
+            this.buttonSignIn.UseVisualStyleBackColor = true;
+            this.buttonSignIn.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(427, 259);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Register";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonRegister.Location = new System.Drawing.Point(427, 259);
+            this.buttonRegister.Name = "button2";
+            this.buttonRegister.Size = new System.Drawing.Size(75, 23);
+            this.buttonRegister.TabIndex = 3;
+            this.buttonRegister.Text = "Register";
+            this.buttonRegister.UseVisualStyleBackColor = true;
+            this.buttonRegister.Click += new System.EventHandler(this.button2_Click);
             // 
             // exitFromProgramm
             // 
@@ -110,10 +110,10 @@ namespace WindowsFormsApp
             this.Controls.Add(this.emptyPass);
             this.Controls.Add(this.emptyLogin);
             this.Controls.Add(this.exitFromProgramm);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.buttonRegister);
+            this.Controls.Add(this.buttonSignIn);
+            this.Controls.Add(this.textBoxLogin);
+            this.Controls.Add(this.textBoxPassword);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SignIn";
             this.Text = "SignIn";
@@ -124,10 +124,10 @@ namespace WindowsFormsApp
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBoxLogin;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.Button buttonSignIn;
+        private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Button exitFromProgramm;
         private System.Windows.Forms.Label emptyLogin;
         private System.Windows.Forms.Label emptyPass;
