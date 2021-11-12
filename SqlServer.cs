@@ -85,7 +85,7 @@ namespace WindowsFormsApp
             }
             catch (Exception)
             {
-                MessageBox.Show("warning", "Not connect to server!", MessageBoxButtons.OK);
+                MessageBox.Show("Not connect to server!", "WARNING", MessageBoxButtons.OK);
             }
         }
 

@@ -40,20 +40,27 @@ namespace WindowsFormsApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string query = $"INSERT INTO data_users(login, pass) VALUES (@login, @pass)";
-            MySqlCommand command = new MySqlCommand(query,SqlServer.mySqlConnection);
+            try
+            {
+                string query = $"INSERT INTO data_users(login, pass) VALUES (@login, @pass)";
+                MySqlCommand command = new MySqlCommand(query, SqlServer.mySqlConnection);
 
-            command.Parameters.Add("@login", MySqlDbType.VarChar).Value = textBox1.Text;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = textBox2.Text;
+                command.Parameters.Add("@login", MySqlDbType.VarChar).Value = textBox1.Text;
+                command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = textBox2.Text;
 
-            if (checkUser()) return;
+                if (checkUser()) return;
 
-            SqlServer.OpenServer();
-            if (command.ExecuteNonQuery() == 1)
-                MessageBox.Show("Account has been created!");
-            else
-                MessageBox.Show("Not created");
-            SqlServer.CloseServer();
+                SqlServer.OpenServer();
+                if (command.ExecuteNonQuery() == 1)
+                    MessageBox.Show("Account has been created!");
+                else
+                    MessageBox.Show("Not created");
+                SqlServer.CloseServer();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Not connection to server!");
+            }
         }
     }
 }

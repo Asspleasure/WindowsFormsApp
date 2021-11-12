@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,23 +18,71 @@ namespace WindowsFormsApp
             InitializeComponent();
         }
 
+        private async void CheckFields()
+        {
+            await Task.Run(() =>
+            {
+                bool CHECK = true;
+                while(CHECK)
+                {
+                    if (textBox1.Text == "" && textBox2.Text == "")
+                    {
+                        emptyLogin.Invoke(new Action(() => emptyLogin.Visible = true));
+                        emptyPass.Invoke(new Action(() => emptyPass.Visible = true));
+                        CHECK = false;
+                    }
+                    else
+                    {
+                        emptyLogin.Invoke(new Action(() => emptyLogin.Visible = false));
+                        emptyPass.Invoke(new Action(() => emptyPass.Visible = false));
+                    }
+
+                    if (textBox1.Text == "")
+                    {
+                        emptyLogin.Invoke(new Action(() => emptyLogin.Visible = true));
+                        CHECK = false;
+                    }
+                    else emptyLogin.Invoke(new Action(() => emptyLogin.Visible = false));
+
+                    if (textBox2.Text == "")
+                    {
+                        emptyPass.Invoke(new Action(() => emptyPass.Visible = true));
+                        CHECK = false;
+                    }
+                    else emptyPass.Invoke(new Action(() => emptyPass.Visible = false));
+                }
+            });
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            var userSignIn = SqlServer.SelectAllUsers();
-            foreach (var i in userSignIn)
+            CheckFields();
+
+            if (textBox1.Text == "" || textBox2.Text == "") return;
+
+            try
             {
-                if (textBox1.Text.Equals(i.Key) && textBox2.Text.Equals(i.Value))
+                var userSignIn = SqlServer.SelectAllUsers();
+                foreach (var i in userSignIn)
                 {
-                    this.Hide();
-                    Menu menu = new Menu();
-                    menu.Show();
-                    return;
+                    if (textBox1.Text.Equals(i.Key) && textBox2.Text.Equals(i.Value))
+                    {
+                        this.Hide();
+                        Menu menu = new Menu();
+                        menu.Show();
+                        return;
+                    }
                 }
+
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox1.Focus();
+                MessageBox.Show("Uncorrect password or login");
             }
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox1.Focus();
-            MessageBox.Show("Uncorrect password or login");
+            catch(Exception)
+            {
+                
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

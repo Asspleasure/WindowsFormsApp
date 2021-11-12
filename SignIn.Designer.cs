@@ -34,6 +34,8 @@ namespace WindowsFormsApp
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.exitFromProgramm = new System.Windows.Forms.Button();
+            this.emptyLogin = new System.Windows.Forms.Label();
+            this.emptyPass = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -45,14 +47,14 @@ namespace WindowsFormsApp
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(300, 166);
+            this.textBox2.Location = new System.Drawing.Point(300, 184);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(202, 20);
             this.textBox2.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(300, 229);
+            this.button1.Location = new System.Drawing.Point(300, 259);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -62,7 +64,7 @@ namespace WindowsFormsApp
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(427, 229);
+            this.button2.Location = new System.Drawing.Point(427, 259);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -80,11 +82,33 @@ namespace WindowsFormsApp
             this.exitFromProgramm.UseVisualStyleBackColor = true;
             this.exitFromProgramm.Click += new System.EventHandler(this.exitFromProgramm_Click);
             // 
+            // emptyLogin
+            // 
+            this.emptyLogin.AutoSize = true;
+            this.emptyLogin.Location = new System.Drawing.Point(357, 145);
+            this.emptyLogin.Name = "emptyLogin";
+            this.emptyLogin.Size = new System.Drawing.Size(89, 13);
+            this.emptyLogin.TabIndex = 5;
+            this.emptyLogin.Text = "The field is empty";
+            this.emptyLogin.Visible = false;
+            // 
+            // emptyPass
+            // 
+            this.emptyPass.AutoSize = true;
+            this.emptyPass.Location = new System.Drawing.Point(357, 207);
+            this.emptyPass.Name = "emptyPass";
+            this.emptyPass.Size = new System.Drawing.Size(89, 13);
+            this.emptyPass.TabIndex = 5;
+            this.emptyPass.Text = "The field is empty";
+            this.emptyPass.Visible = false;
+            // 
             // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.emptyPass);
+            this.Controls.Add(this.emptyLogin);
             this.Controls.Add(this.exitFromProgramm);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -105,5 +129,7 @@ namespace WindowsFormsApp
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button exitFromProgramm;
+        private System.Windows.Forms.Label emptyLogin;
+        private System.Windows.Forms.Label emptyPass;
     }
 }
